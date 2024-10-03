@@ -1,101 +1,97 @@
 import Image from "next/image";
+import { logoFirstSection } from "./data/data";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <div className="h-screen flex justify-center items-center px-[10%] bg-[#FCF944]">
+        <button className="fixed top-7 right-7 md:top-[42px] lg:top-7 lg:right-7 md:right-10 px-[7px] py-[3.5px] text-black text-[4vw] xs:text-[2.75vw] md:text-[2.5vw] lg:text-[2vw] bg-white border-[3.2px] border-black">
+          <h1>donate</h1>
+        </button>
+        <div className="flex flex-col space-y-[16px] xs:space-y-[32px] text-black ">
+          <div className="flex justify-center space-x-[6%]">
+            <div className="flex items-center h-[23vw] w-[23vw] md:h-[19vw] md:w-[19vw] lg:h-[16vw] lg:w-[16vw] ">
+              <Image
+                src={
+                  "https://cdn.prod.website-files.com/62640d8cb86529032eccb9d1/6265332e63b917130ca8d702_isa-logo-dog-clean.svg"
+                }
+                alt="Logo Image Animal"
+                height={300}
+                width={300}
+              />
+            </div>
+            <div className="h-[23vw] w-[30vw] xs:w-[25vw] md:h-[19vw] md:w-[30vw] lg:h-[16vw] lg:w-[23vw] flex items-center font-semibold text-[6.15vw] xs:text-[5vw] lg:text-[4vw] leading-[1em]">
+              Innovative Solutions for Animals
+            </div>
+          </div>
+          <div className="flex flex-col space-y-[32px] xs:space-y-0">
+            <div
+              id="isa-text"
+              className="flex justify-center text-[3.75vw] xs:text-[2.5vw] text-center"
+            >
+              charity organization
+            </div>
+            <div className="flex justify-center">
+              {logoFirstSection?.map((d) => {
+                return (
+                  <div
+                    key={d.src}
+                    className="flex justify-center h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 p-2"
+                  >
+                    <Image
+                      src={d.src}
+                      alt={d.alt}
+                      height={48}
+                      width={48}
+                      unoptimized
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+      <div className="flex justify-center items-center p-[10%] text-black bg-white">
+        <div className="w-full ">
+          <h1 className=" font-semibold text-[4vw]">We are</h1>
+          <p className="text-[2.5vw] leading-[1.5em] mt-[0.5em] mb-[1em]">
+            team of like-minded people, socially active companies, media
+            personalities, volunteers who help low-income shelters and foster
+            carers to support homeless animals.
+          </p>
+          <h1 className=" font-semibold text-[4vw]">Our primary goal</h1>
+          <p className="text-[2.5vw] leading-[1.5em] mt-[0.5em] mb-[1em]">
+            is to provide animals with the most necessary things - food,
+            medicine, and urgent needs for the livelihood of shelters. We
+            believe in our power and the power of conscious citizens who care
+            about the environment and their health, who understand the
+            importance of helping each other, especially our little friends.
+            Growth begins with your care for your loved ones. Animals are one of
+            the closest creatures to humans who remain with us throughout our
+            lives. We all know the healing power of warmth, grace, and big
+            loving eyes.
+          </p>
+          <div className="ml-4 xs:ml-8 lg:ml-16 p-4 text-[2.5vw] italic border-[#ff97d0] border-l-4">
+            {`"Animals need to have friends. Just like humans." - James Herriot,
+            All Creatures Great and Small`}
+          </div>
+          <p className="text-[2.5vw] leading-[1.5em] mt-[0.5em] mb-[1em]">
+            Who else if not we should support our younger brothers, especially
+            in difficult times? Let&apos;s be friends!
+          </p>
+          <div
+            id="iframe-container"
+            className="relative mt-[2em] md:mt-[3em] lg:mt-[4em] w-full aspect-[16/9]"
+          >
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube.com/embed/5Wk1rp99B7o?wmode=opaque&widget_referrer=https%3A%2F%2Fisa-charity.webflow.io%2F&enablejsapi=1&origin=https%3A%2F%2Fcdn.embedly.com&widgetid=1"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
