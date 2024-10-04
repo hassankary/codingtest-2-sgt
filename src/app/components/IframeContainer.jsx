@@ -1,22 +1,33 @@
 "use client";
-import { useEffect } from "react";
 import ScrollMagic from "scrollmagic";
+import { useEffect, useRef } from "react";
 
 export const IframeContainer = () => {
+  const controllerRef = useRef(null);
+
   useEffect(() => {
-    const controller = new ScrollMagic.Controller();
+    if (typeof window !== "undefined") {
+      const controller = new ScrollMagic.Controller();
+      controllerRef.current = controller;
 
-    new ScrollMagic.Scene({
-      triggerElement: "#iframe-container",
-      triggerHook: 1,
-      reverse: true,
-    })
-      .setClassToggle("#iframe-container", "visible")
-      .addTo(controller);
+      new ScrollMagic.Scene({
+        triggerElement: "#iframe-container",
+        triggerHook: 1,
+        reverse: true,
+      })
+        .setClassToggle("#iframe-container", "visible")
+        .addTo(controller);
 
-    return () => {
-      controller.destroy(true);
-    };
+      return () => {
+        if (controllerRef.current) {
+          controllerRef.current.destroy(true);
+        }
+      };
+    } else {
+      console.error(
+        "Window object is not available. This component should only run on the client-side."
+      );
+    }
   }, []);
 
   return (
