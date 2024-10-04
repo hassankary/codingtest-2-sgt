@@ -1,41 +1,42 @@
 "use client";
 import Image from "next/image";
-import { useEffect } from "react";
-import ScrollMagic from "scrollmagic";
+import { useEffect, useRef, useState } from "react";
 
 export const LastSectionImage = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef();
+
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const controller = new ScrollMagic.Controller();
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
 
-      new ScrollMagic.Scene({
-        triggerElement: "#image-footer",
-        triggerHook: 1,
-        reverse: true,
-      })
-        .setClassToggle("#image-footer", "visible")
-        .addTo(controller);
-
-      return () => {
-        controller.destroy(true);
-      };
-    } else {
-      console.error(
-        "Window object is not available. This component should only run on the client-side."
-      );
+    if (ref.current) {
+      observer.observe(ref.current);
     }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
   }, []);
 
   return (
     <div
-      id="image-footer"
-      className={`slide-up-soft w-full xs:w-1/2 lg:w-full`}
+      ref={ref}
+      className={`${
+        isVisible ? "visible" : ""
+      } slide-up-soft w-full xs:w-1/2 lg:w-full`}
     >
       <Image
         src={
           "https://cdn.prod.website-files.com/62640d8cb86529032eccb9d1/62647f9fbe07235ba9b28d67_star-white-with-animals.svg"
         }
-        alt={"Image Footer"}
+        alt={"Image - Footer"}
         height={700}
         width={700}
         unoptimized

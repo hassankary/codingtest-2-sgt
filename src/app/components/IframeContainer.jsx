@@ -1,39 +1,36 @@
 "use client";
-import ScrollMagic from "scrollmagic";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const IframeContainer = () => {
-  const controllerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const controller = new ScrollMagic.Controller();
-      controllerRef.current = controller;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
 
-      new ScrollMagic.Scene({
-        triggerElement: "#iframe-container",
-        triggerHook: 1,
-        reverse: true,
-      })
-        .setClassToggle("#iframe-container", "visible")
-        .addTo(controller);
-
-      return () => {
-        if (controllerRef.current) {
-          controllerRef.current.destroy(true);
-        }
-      };
-    } else {
-      console.error(
-        "Window object is not available. This component should only run on the client-side."
-      );
+    if (ref.current) {
+      observer.observe(ref.current);
     }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
   }, []);
 
   return (
     <div
+      ref={ref}
       id="iframe-container"
-      className="slide-up-soft relative mt-[2em] md:mt-[3em] lg:mt-[4em] w-full aspect-[16/9]"
+      className={`${
+        isVisible ? "visible" : ""
+      } slide-up-soft relative mt-[2em] md:mt-[3em] lg:mt-[4em] w-full aspect-[16/9]`}
     >
       <iframe
         className="absolute top-0 left-0 w-full h-full"
