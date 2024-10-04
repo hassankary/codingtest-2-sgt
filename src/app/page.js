@@ -26,7 +26,7 @@ import { IframeContainer } from "./components/IframeContainer";
 export default function Home() {
   return (
     <>
-      <div className="h-screen flex justify-center items-center px-[10%] bg-[#FCF944]">
+      <div className="h-screen flex justify-center items-center px-[10%] bg-[#FCF944] overflow-hidden">
         <DonateButton />
         <div className="flex flex-col space-y-[16px] xs:space-y-[32px] text-black ">
           <div className="flex justify-center space-x-[6%]">
@@ -94,7 +94,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center p-[10%] text-black bg-[#fcf944]">
+      <div className="flex justify-center items-center p-[10%] text-black bg-[#fcf944] overflow-hidden">
         <div className="w-full">
           <h1 className="font-semibold text-[8vw] xs:text-[4vw]">
             We want to help
@@ -113,7 +113,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <div className="flex justify-center items-center p-[10%] text-black bg-white">
+      <div className="flex justify-center items-center p-[10%] text-black bg-white overflow-hidden">
         <div className="w-full">
           <h1 className="font-semibold text-[8vw] xs:text-[4vw]">Our team</h1>
           <p className="text-[3.75vw] xs:text-[2.5vw] leading-[1.5em] mt-[0.5em] mb-[1em]">
@@ -134,7 +134,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center p-[10%] text-black bg-[#FF97D0]">
+      <div className="flex justify-center items-center p-[10%] text-black bg-[#FF97D0] overflow-hidden">
         <div className="w-full">
           <h1 className="font-semibold text-[8vw] xs:text-[4vw]">
             Socially active citizens
@@ -156,7 +156,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center p-[10%] text-black bg-white">
+      <div className="flex justify-center items-center p-[10%] text-black bg-white overflow-hidden">
         <div className="w-full">
           <h1 className="font-semibold text-[8vw] xs:text-[4vw]">
             Our partners
@@ -171,7 +171,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center p-[10%] text-black bg-[#31BE32]">
+      <div className="flex justify-center items-center p-[10%] text-black bg-[#31BE32] overflow-hidden">
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-[28px] lg:gap-0">
           <div className="w-full">
             <h1 className="font-semibold text-[8vw] xs:text-[4vw]">

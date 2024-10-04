@@ -30,7 +30,7 @@ export const SeventhSectionCard = ({ src, index }) => {
       ref={ref}
       className={` ${
         isVisible ? "visible" : ""
-      } slide-up h-full flex flex-col items-center justify-center text-center`}
+      } slide-up-bit h-full flex flex-col items-center justify-center text-center`}
     >
       <Image
         src={src}
