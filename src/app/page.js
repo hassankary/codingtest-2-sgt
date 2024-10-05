@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import {
   dataFifthSection,
@@ -29,7 +29,7 @@ export default function Home() {
       <div className="h-screen flex justify-center items-center px-[10%] bg-[#FCF944] overflow-hidden">
         <DonateButton />
         <div className="flex flex-col space-y-[16px] xs:space-y-[32px] text-black ">
-          <div className="flex justify-center space-x-[6%]">
+          <div className="h-[23vw] md:h-[19vw] lg:h-[16vw] flex justify-center space-x-[6%]">
             <FirstSectionLogo />
             <FirstSectionTitle />
           </div>

@@ -49,3 +49,17 @@
   opacity: 1;
   transform: translateX(0);
 }
+
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
