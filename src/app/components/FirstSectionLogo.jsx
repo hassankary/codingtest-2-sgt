@@ -46,7 +46,7 @@ export const FirstSectionLogo = () => {
       ref={ref}
       className={`${
         isVisible ? "visible" : ""
-      } slide-down h-full w-[23vw] md:w-[19vw] lg:w-[16vw] flex items-center justify-center`}
+      } slide-down h-full md:w-[19vw] lg:w-[16vw] flex items-center justify-center`}
     >
       <div ref={emblaRef} className="embla h-full">
         <div className="embla__container h-full">
